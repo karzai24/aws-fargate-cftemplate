@@ -3,4 +3,4 @@
     vars_files:
     - "../group_vars/all"
     roles:
-    - { role: '../roles/fargate', tags: ['fargate-superset-deployment'] }
+    - { role: '../roles/fargate', tags: ['fargate-deployment'] }
