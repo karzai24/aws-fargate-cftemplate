@@ -10,12 +10,10 @@ if [[ $# -lt 1 ]] ; then
     exit 64 # sysexits "command line usage" error
 fi
 
-
 echo -e "\nVariables used:"
 echo "# Region: $Region"
 
 ansible-playbook -i "./inventories/hosts" -e "Region=$Region"  plays/pushTemplate.yml -v
 RESULT=$?
 echo -e "Return Code: $RESULT\n"
-
 echo -e "Done.\n"
