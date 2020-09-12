@@ -206,8 +206,8 @@ Resources:
       SecurityGroups:
         - !Ref LoadBalancerSecurityGroup
       Subnets:
-        - !Ref SubnetC
-        - !Ref SubnetD
+        - !Ref SubnetA
+        - !Ref SubnetB
   LogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
