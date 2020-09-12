@@ -1,0 +1,33 @@
+---
+
+- name: "Transform Fargate CF template"
+    template: src="{{ preTemplate }}" dest="{{ Template }}"
+### Common tasks for any Fargate cluster create    
+- name: "Provision Fargate Stack"
+    cloudformation:
+    stack_name: "{{ ServiceName }}-Stack"  ##"{{ RunStackName }}" 
+    state: "present"
+    region: "{{ Region }}"
+    disable_rollback: false
+    template: "{{ Template }}"
+    template_parameters:
+        VPC: "" ## Add VPC Here
+        SubnetA: "" # Add subnet here 
+        SubnetB: "" # Add subnet here 
+        Image: "nginx" ### URL of image
+        ServiceName: "{{ ServiceName }}" ## Add service name
+        ContainerPort: "{{ ContainerPort }}" #Add container port
+        LoadBalancerPort: "{{ ALBPort }}" ## Add LB port
+        HealthCheckPath: "{{ HealthCheckPath }}" ## Add Healthcheck port
+        MinContainers: "{{ FargateMinContainers }}" ## Add Min Containers
+        MaxContainers: "{{ FargateMaxContainers }}" ## Add Max Containers
+        AutoScalingTargetValue: "{{ FargateTargetValue }}" ## Add scaling target value   
+        ContainerDesiredCount: "{{ ContainerDesiredCount }}"
+
+    tags:
+        Stack: "{{ ServiceName }}-Stack"
+        Component: "Frontend / Fargate Cluster"
+    register: Stack
+
+- set_fact:
+    Stack: !!null       # Clears the variable for the next run

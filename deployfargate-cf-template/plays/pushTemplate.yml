@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+    vars_files:
+    - "../group_vars/all"
+    roles:
+    - { role: '../roles/fargate', tags: ['fargate-superset-deployment'] }

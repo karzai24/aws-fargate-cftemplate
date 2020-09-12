@@ -1,0 +1,18 @@
+########################################
+###              Vars                ###
+########################################
+####
+#### Key:Value pairs 
+#### For vars to be passed into Template.
+#### Use Jinja2 Syntax. "{{ Var }}"
+
+preTemplate: cf-template-fargate.j2.yml
+Template: /tmp/cf-template-fargate.yml
+ServiceName: Fargate
+ContainerPort: 8080
+ALBPort: 80
+HealthCheckPath: /
+FargateMinContainers: 2
+FargateMaxContainers: 10
+FargateTargetValue: 50
+ContainerDesiredCount: 1
