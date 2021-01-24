@@ -16,3 +16,6 @@ FargateMinContainers: 2
 FargateMaxContainers: 10
 FargateTargetValue: 50
 ContainerDesiredCount: 1
+MyVPC:     ## Add VPC Here
+MySubnetA: ## Add subnetA here 
+MySubnetB: ## Add subnetB here
