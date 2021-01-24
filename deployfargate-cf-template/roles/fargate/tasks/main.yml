@@ -11,9 +11,9 @@
     disable_rollback: false
     template: "{{ Template }}"
     template_parameters:
-        VPC: "" ## Add VPC Here
-        SubnetA: "" # Add subnet here 
-        SubnetB: "" # Add subnet here 
+        VPC: "{{ MyVPC }}" ## Add VPC Here
+        SubnetA: "{{ MySubnetA }}" # Add subnet here 
+        SubnetB: "{{ MySubnetB }}" # Add subnet here 
         Image: "nginx" ### URL of image
         ServiceName: "{{ ServiceName }}" ## Add service name
         ContainerPort: "{{ ContainerPort }}" #Add container port
